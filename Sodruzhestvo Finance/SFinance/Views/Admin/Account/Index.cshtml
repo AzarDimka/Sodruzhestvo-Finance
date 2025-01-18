@@ -2,4 +2,26 @@
     ViewData["Title"] = "Учётные записи";
 }
 
-<h1>Учётные записи</h1>
+<div class="container-fluid">
+    <div class="row" style="height: 100vh;">
+        <div class="col-md-3 border-end bg-light">
+            <!-- Левая панель (фильтр) -->
+            <h3>Фильтр</h3>
+            <form>
+                <div class="mb-3">
+                    <label for="search" class="form-label">Логин:</label>
+                    <input type="text" id="search" name="search" class="form-control" />
+                    <label for="search" class="form-label">ФИО:</label>
+                    <input type="text" id="search" name="search" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary">Применить</button>
+            </form>
+        </div>
+
+        <div class="col-md-9">
+            <!-- Правая панель (основное взаимодействие) -->
+            <h3>Учетные записи пользователей</h3>
+            <p>Контент для управления данными находится здесь.</p>
+        </div>
+    </div>
+</div>

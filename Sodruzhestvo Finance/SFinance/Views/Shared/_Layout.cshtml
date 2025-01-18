@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SFinance.styles.css" asp-append-version="true" />
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -21,7 +22,7 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-dark">
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Index">Учётные записи</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Index">Справочники</a></li>
+                                @* <li><a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Index">Справочники</a></li> *@
                             </ul>
                         </li>
                     </ul>
@@ -29,14 +30,14 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div>
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
     <footer class="border-top footer text-muted">
-        
+        Подвал страницы!
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
