@@ -1,18 +1,26 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
+using SFinance.Models.Admin;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
 namespace SFinance
 {
+
     public class Program
     {
+
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            var userList = new List<User>()
+            {
+                new User("admin", "www")
+
+            };
 
             builder.Services.AddAuthorization();
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -41,9 +49,11 @@ namespace SFinance
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.Map("/login/{username}", (string username) =>
+            app.Map("/login", (User loginData) =>
             {
-                var claims = new List<Claim> { new Claim(ClaimTypes.Name, username) };
+                // находим пользователя 
+                User? user = userList.FirstOrDefault(p => p.Email == loginData.Login && p.Password == loginData.Password);
+                var claims = new List<Claim> { new Claim(ClaimTypes.Name, user.Login) };
                 // создаем JWT-токен
                 var jwt = new JwtSecurityToken(
                 issuer: AuthOptions.ISSUER,
@@ -52,7 +62,16 @@ namespace SFinance
                         expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(2)),
                         signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
 
-                return new JwtSecurityTokenHandler().WriteToken(jwt);
+                var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
+
+                // формируем ответ
+                var response = new
+                {
+                    access_token = encodedJwt,
+                    username = user.Email
+                };
+
+                return Results.Json(response);
             });
 
             app.Map("/data", [Authorize] () => new { message = "Hello World!" });
@@ -92,5 +111,7 @@ namespace SFinance
             public static SymmetricSecurityKey GetSymmetricSecurityKey() =>
                 new SymmetricSecurityKey(Encoding.UTF8.GetBytes(KEY));
         }
+
+        record class Person(string Email, string Password);
     }
 }
