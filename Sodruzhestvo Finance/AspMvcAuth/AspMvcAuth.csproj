@@ -17,4 +17,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Account\Controllers\" />
+    <Folder Include="Areas\Account\Data\" />
+    <Folder Include="Areas\Account\Models\" />
+    <Folder Include="Areas\Account\Views\" />
+  </ItemGroup>
+
 </Project>
