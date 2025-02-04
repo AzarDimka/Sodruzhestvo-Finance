@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFinance", "SFinance\SFinance.csproj", "{ED35CCD4-6D17-432C-BECF-79E3CB7398ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspMvcAuth", "AspMvcAuth\AspMvcAuth.csproj", "{974C87E6-D6D6-4038-B2BD-8EE85700134A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{ED35CCD4-6D17-432C-BECF-79E3CB7398ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED35CCD4-6D17-432C-BECF-79E3CB7398ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED35CCD4-6D17-432C-BECF-79E3CB7398ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{974C87E6-D6D6-4038-B2BD-8EE85700134A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{974C87E6-D6D6-4038-B2BD-8EE85700134A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{974C87E6-D6D6-4038-B2BD-8EE85700134A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{974C87E6-D6D6-4038-B2BD-8EE85700134A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
